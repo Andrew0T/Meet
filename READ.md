@@ -1,6 +1,7 @@
 Meet App
 
 A serverless, progressive web application (PWA) with React using a test-driven development (TDD) technique.
+
 Key features:
 
 Feature 1. Filter events by city.
