@@ -13,8 +13,7 @@ const credentials = {
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
   redirect_uris: ["https://andrew0t.github.io/meet/"],
-  javascript_origins: ["https://andrew0t.github.io", "http://127.0.0.1:8080",
-     "http://192.168.0.92:8080", "http://localhost:3000"],
+  javascript_origins: ["https://andrew0t.github.io", "http://localhost:3000"],
 };
 
 const { client_secret, client_id, redirect_uris, calendar_id } = credentials;
@@ -127,10 +126,6 @@ module.exports.getAccessToken = async (event) => {
       .catch((error)=> {
         console.error(error);
         return {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": true
-          },
           statusCode: 500,
           body: JSON.stringify(error),
         };
