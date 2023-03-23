@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Warning extends Component {
+class Alert extends Component {
   constructor(props) {
     super(props);
     this.color = null;
@@ -9,37 +9,39 @@ class Warning extends Component {
   getStyle = () => {
     return {
       color: this.color,
+      fontStyle: 'italic',
     };
   };
 
   render() {
     return (
-      <div className="Warning">
+      <div className="Alert">
         <p style={this.getStyle()}>{this.props.text}</p>
       </div>
     );
   }
 }
 
-class InfoWarning extends Warning {
+class InfoAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'blue';
+    this.fontStyle = 'bold';
   }
 }
 
-class OfflineWarning extends Warning {
+class WarningAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'orange';
   }
 }
 
-class ErrorWarning extends Warning {
+class ErrorAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'red';
   }
 }
 
-export { InfoWarning, OfflineWarning, ErrorWarning };
+export { InfoAlert, WarningAlert, ErrorAlert };
