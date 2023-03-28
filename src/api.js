@@ -74,7 +74,7 @@ export const getEvents = async () => {
   if (!navigator.onLine) {
     const data = localStorage.getItem("lastEvents");
     NProgress.done();
-    return data?JSON.parse(data).events:[];;
+    return data ? JSON.parse(data).events:[];
   }
 
   const token = await getAccessToken();
@@ -82,9 +82,9 @@ export const getEvents = async () => {
   if (token) {
   removeQuery();
   const url = 
-  "https://syn9sfihv7.execute-api.eu-central-1.amazonaws.com/dev/api/get-events"
-  + "/" +
-  token;
+    "https://syn9sfihv7.execute-api.eu-central-1.amazonaws.com/dev/api/get-events"
+    + "/" +
+    token;
   const result = await axios.get(url);
   if (result.data) {
     var locations = extractLocations(result.data.events);
