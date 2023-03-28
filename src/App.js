@@ -3,6 +3,7 @@ import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
 import WelcomeScreen from "./WelcomeScreen";
+import { WarningAlert } from "./alert";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
 import "./App.css";
 import "./nprogress.css";
@@ -57,6 +58,11 @@ class App extends Component {
       return <div className="App" />
     return (
       <div className="App">
+        {!navigator.online &&
+          <WarningAlert 
+          text='You are currently offline. You are viewing cached data.'
+          />
+        }
         <CitySearch 
           locations={this.state.locations}
           updateEvents={this.updateEvents}
