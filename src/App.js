@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
-import WelcomeScreen from "./WelcomeScreen";
-import { WarningAlert } from "./alert";
-import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
+import { getEvents, extractLocations } from "./api";
 import "./App.css";
 import "./nprogress.css";
 
@@ -13,8 +11,7 @@ class App extends Component {
     events: [],
     locations: [],
     selectedLocation: 'all',
-    numberOfEvents: 32,
-    showWelcomeScreen: undefined
+    numberOfEvents: 32    
   }
 
   updateEvents = (location, eventCount) => {
@@ -33,20 +30,13 @@ class App extends Component {
     });
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.mounted = true;
-    const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (await checkToken(accessToken)).error ? false: true;
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if ((code || isTokenValid) && this.mounted) {
-      getEvents().then((events) => {
-        if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
-        }
-      });
-    }
+    getEvents().then((events) => {
+      if (this.mounted) {
+      this.setState({ events, locations: extractLocations(events) });
+      }
+    });
   }
 
   componentWillUnmount(){
@@ -54,15 +44,8 @@ class App extends Component {
   }
 
   render() {
-    if (this.stateshowWelcomeScreen === undefined)
-      return <div className="App" />
     return (
       <div className="App">
-        {!navigator.online &&
-          <WarningAlert 
-          text='You are currently offline. You are viewing cached data.'
-          />
-        }
         <CitySearch 
           locations={this.state.locations}
           updateEvents={this.updateEvents}
@@ -71,10 +54,6 @@ class App extends Component {
         <NumberOfEvents
           numberOfEvents={this.state.numberOfEvents}
           updateEvents={this.updateEvents}
-        />
-        <WelcomeScreen
-          showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => { getAccessToken() }}
         />
       </div>
     );
