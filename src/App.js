@@ -71,27 +71,21 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Meet App</h1>
-        <WelcomeScreen
-          showWelcomeScreen={showWelcomeScreen}
-          getAccessToken={() => { getAccessToken() }}
-        />
-        <div className="WarningAlert">
-        {!navigator.online && (
+         {!navigator.online && (
           <WarningAlert 
           text={'You are currently offline. App is running in offline mode.'}
           />
         )}
-        </div>
+        <CitySearch 
+          updateEvents={this.updateEvents}
+          locations={locations}
+        />
         <NumberOfEvents
           updateEvents={this.updateEvents}
           numberOfEvents={numberOfEvents}
         />
-        <CitySearch 
-          updateEvents={this.updateEvents}
-          locations={locations}
-        />        
-        <h4>Events in each city</h4>
-        <EventList events={events} />
+        <EventList events={events} />        
+        <h4>Events in each city</h4>        
         <EventGenre events={events} />
         <ResponsiveContainer height={400} >
           <ScatterChart
@@ -118,6 +112,10 @@ class App extends Component {
             <Scatter data={this.getData()} fill="#8884d8" />
           </ScatterChart>
         </ResponsiveContainer>
+        <WelcomeScreen
+          showWelcomeScreen={showWelcomeScreen}
+          getAccessToken={() => { getAccessToken() }}
+        />
       </div>
     );
   }
