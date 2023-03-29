@@ -79,11 +79,12 @@ class App extends Component {
           updateEvents={this.updateEvents}
           locations={locations}
         />
+        <EventList events={events} />
         <NumberOfEvents
           updateEvents={this.updateEvents}
           numberOfEvents={numberOfEvents}
         />
-        <EventList events={events} />
+        
         <div className='data-vis-wrapper'>
           <EventGenre events={events} />
           <ResponsiveContainer height={400} >
