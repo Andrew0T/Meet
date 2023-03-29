@@ -22,7 +22,7 @@
   margin: 1rem;
   background-color: #f4c542;
   border-radius: 2px;
-  /* box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25); */
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   }
 .google-btn:hover {
   box-shadow: 0 0 6px #1ae066;
