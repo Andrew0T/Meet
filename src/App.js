@@ -70,7 +70,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Welcome to a Meet App</h1>
-         {!navigator.online && (
+         {!navigator.onLine && (
           <WarningAlert 
           text={'You are currently offline. App is running in offline mode.'}
           />
