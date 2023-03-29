@@ -15,9 +15,11 @@
   transition: all 0.4s ease 0s;
   min-width: 10rem;
   margin: 1rem;
+  position: relative;
   }
-.buttin_cont {
+.button_cont {
   margin: 1rem;
+  position: relative;
 }
 .google-btn {
   width: 184px;
