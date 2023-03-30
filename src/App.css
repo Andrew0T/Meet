@@ -118,8 +118,8 @@ input[type="number"] {
 
 .numberOfEvents {
   position: fixed;
-  width: 48px;
-  margin: 10px auto;
+  width: 24px;
+  margin: 1rem auto;
   text-align: center;
 }
 
