@@ -65,7 +65,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("!navigate onLine:", navigator.onLine)
     const { events, locations, numberOfEvents, showWelcomeScreen } = this.state;
     if (showWelcomeScreen === undefined) return <div className="App" />
     return (
