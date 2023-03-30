@@ -118,9 +118,9 @@ input[type="number"] {
 }
 
 .numberOfEvents {
-  position: relative;
+  position: absolute;
   width: 24px;
-  margin: 5px auto;
+  margin: 0, auto;
   text-align: center;
 }
 
@@ -133,7 +133,7 @@ input[type="number"] {
 }
 
 .Alert {
-  position: fixed;
+  position: relative;
   top: 20px;
 }
 
