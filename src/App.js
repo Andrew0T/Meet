@@ -14,7 +14,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    selectedLocation: "all",
+    selectedLocation: "All Cities",
     numberOfEvents: 32,
     showWelcomeScreen: undefined
   }
@@ -22,7 +22,7 @@ class App extends Component {
   updateEvents = (location, eventCount) => {
     if(location === undefined) location = this.state.selectedLocation;
     getEvents().then((events) => {
-      const locationEvents = (location === "all") ?
+      const locationEvents = (location === "All Cites") ?
             events : events.filter((event) => event.location === location);
             eventCount = eventCount === undefined ?
             this.state.numberOfEvents : eventCount;

@@ -24,14 +24,15 @@ class NumberOfEvents extends Component {
   }
 
   render() {
+    const { errorAlert, numberOfEvents } = this.state;
     return (
       <div className="numberofevents">
-        <ErrorAlert text={this.state.errorAlert} />
+        <ErrorAlert text={errorAlert} />
         <label>Numberof Events: </label>
         <input
           type="number"
           className="numberofeventsdata"
-          value={this.state.numberOfEvents}
+          value={numberOfEvents}
           onChange={this.handleInputChanged}
         />
       </div>

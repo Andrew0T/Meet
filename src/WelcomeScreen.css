@@ -40,7 +40,7 @@
   width: 40px;
   height: 40px;
   border-radius: 2px;
-  background-color: #fff;
+  background-color: #baccba;
   }
 .google-icon {
   position: absolute;
@@ -51,11 +51,11 @@
   }
 .btn-text {
   float: right;
-  color: #fff;
+  color: #7e9ec4;
   font-size: 14px;
   letter-spacing: 0.2px;
   font-family: "Roboto";
-  background-color: #4285f4;
+  background-color: #3f5c0a;
   width: 80%;
   height: 100%;
   text-align: center;
