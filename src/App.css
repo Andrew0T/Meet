@@ -132,7 +132,7 @@ input[type="number"] {
 }
 
 .Alert {
-  position: relative;
+  align-items: flex-start;
   top: 5px;
 }
 
