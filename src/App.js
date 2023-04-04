@@ -14,7 +14,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    selectedLocation: 'all',
+    selectedLocation: "all",
     numberOfEvents: 32,
     showWelcomeScreen: undefined
   }
@@ -22,7 +22,7 @@ class App extends Component {
   updateEvents = (location, eventCount) => {
     if(location === undefined) location = this.state.selectedLocation;
     getEvents().then((events) => {
-      const locationEvents = (location === 'all') ?
+      const locationEvents = (location === "all") ?
             events : events.filter((event) => event.location === location);
             eventCount = eventCount === undefined ?
             this.state.numberOfEvents : eventCount;
@@ -38,7 +38,7 @@ class App extends Component {
     const {locations, events} = this.state;
     const data = locations.map((location)=>{
       const number = events.filter((event) => event.location === location).length;
-      const city = location.split(', ').shift();
+      const city = location.split(", ").shift();
       return {city, number};
     });
     return data;
@@ -46,7 +46,7 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
-    const accessToken = localStorage.getItem('access_token');
+    const accessToken = localStorage.getItem("access_token");
     const isTokenValid = (await checkToken(accessToken)).error ? false: true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
@@ -72,7 +72,7 @@ class App extends Component {
         <h1>Welcome to a Meet App</h1>
          {!navigator.onLine && (
           <WarningAlert 
-          text={'You are currently offline. App is running in offline mode.'}
+          text={"You are currently offline. App is running in offline mode."}
           />
         )}
         <CitySearch 
@@ -83,9 +83,8 @@ class App extends Component {
         <NumberOfEvents
           updateEvents={this.updateEvents}
           numberOfEvents={numberOfEvents}
-        />
-        
-        <div className='data-vis-wrapper'>
+        />        
+        <div className="data-vis-wrapper">
           <EventGenre events={events} />
           <ResponsiveContainer height={400} >
             <ScatterChart
@@ -103,7 +102,7 @@ class App extends Component {
                 dataKey="number"
                 name="number of events"
               />
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Tooltip cursor={{ strokeDasharray: "3 3" }} />
               <Scatter data={this.getData()} fill="#E1FF91" />
             </ScatterChart>
           </ResponsiveContainer>
