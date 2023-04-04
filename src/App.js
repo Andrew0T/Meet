@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import WelcomeScreen from "./WelcomeScreen";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
-import WelcomeScreen from "./WelcomeScreen";
 import EventGenre from "./EventGenre";
 import { WarningAlert } from "./alert";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
@@ -69,6 +69,10 @@ class App extends Component {
     if (showWelcomeScreen === undefined) return <div className="App" />
     return (
       <div className="App">
+        <WelcomeScreen
+          showWelcomeScreen={showWelcomeScreen}
+          getAccessToken={() => { getAccessToken() }}
+        />
         <h1>Welcome to a Meet App</h1>
          {!navigator.onLine && (
           <WarningAlert 
@@ -107,10 +111,6 @@ class App extends Component {
             </ScatterChart>
           </ResponsiveContainer>
         </div>        
-        <WelcomeScreen
-          showWelcomeScreen={showWelcomeScreen}
-          getAccessToken={() => { getAccessToken() }}
-        />
       </div>
     );
   }
