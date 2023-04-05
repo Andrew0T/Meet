@@ -19,7 +19,7 @@
 .button_cont {
     margin: 5px;
   }
-.google-btn {
+/* .google-btn {
   width: 240px;
   height: 48px;
   margin: 16px;
@@ -32,7 +32,7 @@
   }
 .google-btn:active {
     background: #3f5c0a;
-    }
+    } */
 .google-icon-wrapper {
   position: absolute;
   margin-top: 1px;
