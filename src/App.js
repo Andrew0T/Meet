@@ -79,15 +79,16 @@ class App extends Component {
           text={"You are currently offline. App is running in offline mode."}
           />
         )}
-        <CitySearch 
-          updateEvents={this.updateEvents}
-          locations={locations}
-        />
-        <EventList events={events} />
-        <NumberOfEvents
-          updateEvents={this.updateEvents}
-          numberOfEvents={numberOfEvents}
-        />        
+        <div>
+          <CitySearch 
+            updateEvents={this.updateEvents}
+            locations={locations}
+          />
+          <NumberOfEvents
+            updateEvents={this.updateEvents}
+            numberOfEvents={numberOfEvents}
+          />
+        </div>        
         <div className="data-vis-wrapper">
           <EventGenre events={events} />
           <ResponsiveContainer height={400} >
@@ -110,7 +111,8 @@ class App extends Component {
               <Scatter data={this.getData()} fill="#E1FF91" />
             </ScatterChart>
           </ResponsiveContainer>
-        </div>        
+        </div>
+        <EventList events={events} />
       </div>
     );
   }
