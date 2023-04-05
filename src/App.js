@@ -98,15 +98,17 @@ class App extends Component {
                 type="category"
                 dataKey="city"
                 name="city"
+                color="#1221BB"
               />
               <YAxis
                 allowDecimals={false}
                 type="number"
                 dataKey="number"
                 name="number of events"
+                colour="#FF0000"
               />
               <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-              <Scatter data={this.getData()} fill="#E1FF91" />
+              <Scatter data={this.getData()} fill="#EEFF99" />
             </ScatterChart>
           </ResponsiveContainer>
         </div>
