@@ -98,14 +98,16 @@ class App extends Component {
                 type="category"
                 dataKey="city"
                 name="city"
-                colorRendering={"#1221BB"}
+                stroke="#0000FF"
+                axisLine={{stroke: "#000000"}}
               />
               <YAxis
                 allowDecimals={false}
                 type="number"
                 dataKey="number"
                 name="number of events"
-                color="#FF0000"
+                stroke="#FF0000"
+                axisLine={{stroke: "#000000"}}
               />
               <Tooltip cursor={{ strokeDasharray: "3 3" }} />
               <Scatter data={this.getData()} fill="#EEFF99" />

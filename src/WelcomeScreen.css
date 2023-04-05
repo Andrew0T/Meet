@@ -19,9 +19,9 @@ h4 {
   min-width: 10rem;
   margin: 16px;
   }
-/* .google-btn {
-  width: 184px;
-  height: 42px;
+.google-btn {
+  width: 240px;
+  height: 48px;
   margin: 1rem;
   background-color: #3f5c0a;
   border-radius: 2px;
@@ -32,7 +32,7 @@ h4 {
 }
 .google-btn:active {
   background: #3f5c0a;
-} */
+}
 .google-icon-wrapper {
   position: absolute;
   margin-top: 1px;
