@@ -10,10 +10,11 @@ const EventGenre = ({ events }) => {
 
   const getData = () => {
     const genres = ["React", "JavaScript", "Node", "jQuery", "AngularJS"];
-    const data = genres.map((genre) =>{
+    const input = genres.map((genre) =>{
       const value = events.filter((event) => event.summary.split(" ").includes(genre)).length;
       return {name: genre, value};
     });
+    const data = input.filter((genre) => genre.value !== 0);
     return data;
   }
 
@@ -31,7 +32,7 @@ const EventGenre = ({ events }) => {
           outerRadius={80}
           label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
         >
-          {data.map((_entry, index) => (
+          {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={colors[index]} />
           ))}
         </Pie>
