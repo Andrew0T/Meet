@@ -79,7 +79,6 @@ class App extends Component {
           text={"You are currently offline. App is running in offline mode."}
           />
         )}
-        <div>
           <CitySearch 
             updateEvents={this.updateEvents}
             locations={locations}
@@ -88,7 +87,6 @@ class App extends Component {
             updateEvents={this.updateEvents}
             numberOfEvents={numberOfEvents}
           />
-        </div>        
         <div className="data-vis-wrapper">
           <EventGenre events={events} />
           <ResponsiveContainer height={400} >
