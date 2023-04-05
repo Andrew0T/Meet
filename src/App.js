@@ -93,14 +93,12 @@ class App extends Component {
             <ScatterChart
               margin={{ top: 20, right: 20, bottom: 20, left: 20, }}
             >
-              <CartesianGrid verticalFill={"#000000"} horizontalFill={"#000000"}/>
+              <CartesianGrid/>
               <XAxis 
                 type="category"
                 dataKey="city"
                 name="city"
-                stroke="#ecdb3a"
-                axisLine={{stroke: "#000000"}}
-                
+                stroke="#ecdb3a"                
               />
               <YAxis
                 allowDecimals={false}
@@ -108,7 +106,6 @@ class App extends Component {
                 dataKey="number"
                 name="number of events"
                 stroke="#ecdb3a"
-                axisLine={{stroke: "#000000"}}
               />
               <Tooltip cursor={{ strokeDasharray: "3 3" }} />
               <Scatter data={this.getData()} fill="#EEFF99" />
