@@ -14,14 +14,11 @@
   display: inline-block;
   transition: all 0.4s ease 0s;
   min-width: 10rem;
-  margin: 10px;
-  }
-.button_cont {
-    margin: 5px;
+  margin: 16px;
   }
 .google-btn {
   width: 240px;
-  height: 48px;
+  height: 40px;
   margin: 16px;
   background-color: #3f5c0a;
   border-radius: 2px;
@@ -32,7 +29,7 @@
   }
 .google-btn:active {
     background: #3f5c0a;
-    }
+  }
 .google-icon-wrapper {
   position: absolute;
   margin-top: 1px;
@@ -41,22 +38,19 @@
   height: 40px;
   border-radius: 2px;
   background-color: #baccba;
-  }
+}
 .google-icon {
   position: absolute;
   margin-top: 11px;
   margin-left: -8px;
   width: 18px;
   height: 18px;
-  }
+}
 .btn-text {
   float: right;
+  margin: 11px 11px 0 0;
   color: #7e9ec4;
   font-size: 14px;
   letter-spacing: 0.2px;
   font-family: "Roboto";
-  background-color: #3f5c0a;
-  width: 80%;
-  height: 100%;
-  text-align: center;
-  }
+}
