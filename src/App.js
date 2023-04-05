@@ -66,19 +66,18 @@ class App extends Component {
 
   render() {
     const { events, locations, numberOfEvents, showWelcomeScreen } = this.state;
-    if (showWelcomeScreen === undefined) return <div className="App" />
+    if (showWelcomeScreen === undefined) return <div className="App" />;
     return (
       <div className="App">
-        <WelcomeScreen
-          showWelcomeScreen={showWelcomeScreen}
-          getAccessToken={() => { getAccessToken() }}
-        />
         <h1>Welcome to a Meet App</h1>
+          <div className="OfflineAlert" >
          {!navigator.onLine && (
           <WarningAlert 
           text={"You are currently offline. App is running in offline mode."}
           />
         )}
+        </div>
+        <div>
           <CitySearch 
             updateEvents={this.updateEvents}
             locations={locations}
@@ -87,6 +86,7 @@ class App extends Component {
             updateEvents={this.updateEvents}
             numberOfEvents={numberOfEvents}
           />
+        </div>
         <div className="data-vis-wrapper">
           <EventGenre events={events} />
           <ResponsiveContainer height={400} >
@@ -98,14 +98,14 @@ class App extends Component {
                 type="category"
                 dataKey="city"
                 name="city"
-                color="#1221BB"
+                colorRendering={"#1221BB"}
               />
               <YAxis
                 allowDecimals={false}
                 type="number"
                 dataKey="number"
                 name="number of events"
-                colour="#FF0000"
+                color="#FF0000"
               />
               <Tooltip cursor={{ strokeDasharray: "3 3" }} />
               <Scatter data={this.getData()} fill="#EEFF99" />
@@ -113,6 +113,10 @@ class App extends Component {
           </ResponsiveContainer>
         </div>
         <EventList events={events} />
+        <WelcomeScreen
+          showWelcomeScreen={showWelcomeScreen}
+          getAccessToken={() => { getAccessToken() }}
+        />
       </div>
     );
   }

@@ -6,7 +6,7 @@
   background: #3f5c0a;
   }
 h4 {
-  margin-top: auto;
+  padding-top: 1rem;
 }
 .login-button {
   color: #494949;
@@ -19,7 +19,7 @@ h4 {
   min-width: 10rem;
   margin: 16px;
   }
-.google-btn {
+/* .google-btn {
   width: 184px;
   height: 42px;
   margin: 1rem;
@@ -32,7 +32,7 @@ h4 {
 }
 .google-btn:active {
   background: #3f5c0a;
-}
+} */
 .google-icon-wrapper {
   position: absolute;
   margin-top: 1px;
@@ -50,7 +50,7 @@ h4 {
   height: 18px;
 }
 a {
-  margin-top: auto;
+  margin-bottom: 20px;
 }
 .btn-text {
   float: right;
