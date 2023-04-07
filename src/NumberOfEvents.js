@@ -31,8 +31,6 @@ class NumberOfEvents extends Component {
         <label>Number of Events: </label>
         <input
           type="number"
-          min='1'
-          max='32'
           className="numberofeventsdata"
           value={numberOfEvents}
           onChange={this.handleInputChanged}
