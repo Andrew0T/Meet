@@ -14,7 +14,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    selectedLocation: "All Cities",
+    selectedLocation: "all",
     numberOfEvents: 32,
     showWelcomeScreen: undefined
   }
@@ -22,17 +22,16 @@ class App extends Component {
   updateEvents = (location, eventCount) => {
     if(location === undefined) location = this.state.selectedLocation;
     getEvents().then((events) => {
-      const locationEvents = (location === "All Cites") ?
+      const locationEvents = location === "all" ?
             events : events.filter((event) => event.location === location);
-            eventCount = eventCount === undefined ?
-            this.state.numberOfEvents : eventCount;
+      eventCount = eventCount === undefined ? this.state.numberOfEvents : eventCount;
       this.setState({
         events: locationEvents.slice(0, eventCount),
         selectedLocation: location,
         numberOfEvents: eventCount
       });
-    })
-  }
+    });
+  };
 
   getData = () => {
     const {locations, events} = this.state;
@@ -42,7 +41,7 @@ class App extends Component {
       return {city, number};
     });
     return data;
-  }
+  };
 
   async componentDidMount() {
     this.mounted = true;
