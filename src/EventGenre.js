@@ -32,8 +32,8 @@ const EventGenre = ({ events }) => {
           outerRadius={80}
           label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
         >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index]} />
+          {data.map((_entry, index) => (
+            <Cell key={`cell-${index}`} fill={colors [ index % colors.length]} />
           ))}
         </Pie>
       </PieChart>
