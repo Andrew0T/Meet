@@ -23,6 +23,10 @@ class NumberOfEvents extends Component {
     this.props.updateEvents(undefined, value);
   }
 
+  componentDidMount() {
+    this.setState({numberOfEvents: this.props.numberOfEvents || 32});
+  }
+
   render() {
     const { errorAlert, numberOfEvents } = this.state;
     return (
