@@ -104,6 +104,7 @@ class App extends Component {
               />
               <YAxis
                 allowDecimals={false}
+                max="32"
                 type="number"
                 dataKey="number"
                 name="number of events"
