@@ -51,8 +51,7 @@ class App extends Component {
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
     const localHost = window.location.href.startsWith("http://localhost") ? true:
-    code || isTokenValid;
-    this.setState({ showWelcomeScreen: !localHost });
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
     if (localHost  && this.mounted) {
       getEvents().then((events) => {
         if (this.mounted) {
