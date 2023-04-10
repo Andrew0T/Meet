@@ -3,7 +3,7 @@ import { ErrorAlert } from "./alert";
 
 class NumberOfEvents extends Component {
   state = {
-    numberOfEvents: 32,
+    numberOfEvents: this.props.numberOfEvents,
     errorAlert: " "
   }
 
