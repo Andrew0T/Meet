@@ -72,7 +72,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Welcome to a Meet App</h1>
-          <div className="OfflineAlert" >
+        <h4>Choose your nearest City</h4>
+        <div className="OfflineAlert" >
          {!navigator.onLine && (
           <WarningAlert 
           text={"You are currently offline. App is running in offline mode."}
@@ -88,6 +89,7 @@ class App extends Component {
             numberOfEvents={numberOfEvents}
             updateEvents={this.updateEvents}
           />
+          <h4>Events in each City</h4>
         </div>
         <div className="data-vis-wrapper">
           <EventGenre events={events} />
