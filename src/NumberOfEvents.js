@@ -3,7 +3,7 @@ import { ErrorAlert } from "./alert";
 
 class NumberOfEvents extends Component {
   state = {
-    numberOfEvents: this.props.numberOfEvents,
+    numberOfEvents: 32,
     errorAlert: " "
   }
 
@@ -11,7 +11,7 @@ class NumberOfEvents extends Component {
     const value = event.target.value;
     if (value <1 || value> 32) {
       this.setState({
-        numberOfEvents: value,
+        numberOfEvents: event.target.value,
         errorAlert: "Please enter a number from 1 to 32"
       });
     } else {
