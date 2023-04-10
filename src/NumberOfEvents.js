@@ -16,7 +16,7 @@ class NumberOfEvents extends Component {
       });
     } else {
     this.setState({ 
-      numberOfEvents: value,
+      numberOfEvents: event.target.value,
       errorAlert: " "
     });
     }

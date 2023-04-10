@@ -20,15 +20,15 @@ class App extends Component {
   }
 
   updateEvents = (location, eventCount) => {
-    const { numberOfEvents, selectedLocation} = this.state;
-    if(location === undefined) location = selectedLocation;
+    // const { numberOfEvents, selectedLocation} = this.state;
+    // if(location === undefined) location = selectedLocation;
     getEvents().then((events) => {
       const locationEvents = location === "all" ?
             events : events.filter((event) => event.location === location);
-      eventCount = eventCount === undefined ? numberOfEvents : eventCount;
+      // eventCount = eventCount === undefined ? numberOfEvents : eventCount;
       this.setState({
         events: locationEvents.slice(0, eventCount),
-        selectedLocation: location,
+        // selectedLocation: location,
         numberOfEvents: eventCount
       });
     });
