@@ -50,8 +50,10 @@ class App extends Component {
     const isTokenValid = (await checkToken(accessToken)).error ? false: true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid)});
-    if ((code || isTokenValid)  && this.mounted) {
+    const localHost = window.location.href.startsWith("http://localhost") ? true:
+    code || isTokenValid;
+    this.setState({ showWelcomeScreen: !localHost });
+    if (localHost  && this.mounted) {
       getEvents().then((events) => {
         if (this.mounted) {
           this.setState({ events, locations: extractLocations(events) });
@@ -115,7 +117,7 @@ class App extends Component {
             </ScatterChart>
           </ResponsiveContainer>
         </div>
-        <EventList events={events.slice(0, numberOfEvents)} />
+        <EventList events={events} />
         <WelcomeScreen
           showWelcomeScreen={showWelcomeScreen}
           getAccessToken={() => { getAccessToken() }}
