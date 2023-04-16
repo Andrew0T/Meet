@@ -18,13 +18,12 @@ class CitySearch extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText: 'We can not find the city you are looking for. Please try another city',
+        infoText: 'City not available. Please try another city',
       });
     } else {
       return this.setState({
         query: value,
         suggestions,
-        showSuggestions: undefined,
         infoText: ''
       });
     }
@@ -36,7 +35,7 @@ class CitySearch extends Component {
       showSuggestions: false,
       infoText: ''
     });
-    this.props.updateEvents(suggestion, undefined);
+    this.props.updateEvents(suggestion);
   }
 
   render() {
@@ -51,12 +50,17 @@ class CitySearch extends Component {
           onChange={this.handleInputChanged}
           onFocus={() => { this.setState({ showSuggestions: true }) }}
         />
-        <ul className="suggestions" style={showSuggestions ? {}: {display: 'none'}}>
+        <ul 
+          className="suggestions"
+          style={showSuggestions ? {}: {display: "none"}}
+        >
           {suggestions.map((suggestion) => (
             <li
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}
-            >{suggestion}</li>
+            >
+              {suggestion}
+            </li>
           ))}
           <li onClick={() => this.handleItemClicked("all")}>
             <b>See all cities</b>

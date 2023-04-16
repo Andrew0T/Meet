@@ -22,9 +22,9 @@ class App extends Component {
   updateEvents = (location, eventCount) => {
     const { numberOfEvents, selectedLocation} = this.state;
     if(location === undefined) location = selectedLocation;
-    getEvents().then((events) => {
-      const locationEvents = location === "all" ?
-            events : events.filter((event) => event.location === location);
+      getEvents().then((events) => {
+        const locationEvents = location === "all" ?
+           events : events.filter((event) => event.location === location);
       eventCount = eventCount === undefined ? numberOfEvents : eventCount;
       this.setState({
         events: locationEvents.slice(0, eventCount),
@@ -46,14 +46,15 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
+    
     const accessToken = localStorage.getItem("access_token");
     const isTokenValid = (await checkToken(accessToken)).error ? false: true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
-    const localHost = window.location.href.startsWith("http://localhost") ? true:
-    code || isTokenValid;
-    this.setState({ showWelcomeScreen: !localHost });
-    if (localHost  && this.mounted) {
+    const isLocal = window.location.href.startsWith("https://localhost")
+    ? true: code || isTokenValid;
+    this.setState({ showWelcomeScreen: !isLocal });
+    if (isLocal  && this.mounted) {
       getEvents().then((events) => {
         if (this.mounted) {
           this.setState({ events, locations: extractLocations(events) });
@@ -76,11 +77,12 @@ class App extends Component {
         <div className="OfflineAlert" >
          {!navigator.onLine && (
           <WarningAlert 
-          text={"You are currently offline. App is running in offline mode."}
+          text={
+            "You are currently offline. App is running in offline mode."
+          }
           />
         )}
         </div>
-        <div>
           <CitySearch 
             locations={locations}
             updateEvents={this.updateEvents}
@@ -89,8 +91,9 @@ class App extends Component {
             numberOfEvents={numberOfEvents}
             updateEvents={this.updateEvents}
           />
-          <h4>Events in each City</h4>
-        </div>
+          <h4>
+            Events in each City
+          </h4>
         <div className="data-vis-wrapper">
           <EventGenre events={events} />
           <ResponsiveContainer height={300} >

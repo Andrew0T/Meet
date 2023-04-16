@@ -11,11 +11,11 @@ class Event extends Component {
         aboutVisible: true,
       });
     } else {
-    this.setState({ 
-      aboutVisible: false,
-    });
-  }
-};
+      this.setState({ 
+        aboutVisible: false,
+      });
+    }
+  };
 
   render() {
     const { event } = this.props; 
@@ -23,7 +23,7 @@ class Event extends Component {
       <div className="event">
         <h2 className="summary">{event.summary}</h2>
         <p className="location">{event.location}</p>
-        <p className="start">{event.start.dateTime}</p>
+        <p className="start">{event.start.dateTime}{event.location}</p>
         {this.state.aboutVisible ? (
           <>
             <div className="about">
