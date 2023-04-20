@@ -54,11 +54,14 @@ class App extends Component {
     const isLocal = window.location.href.startsWith("https://localhost")
     ? true: code || isTokenValid;
     this.setState({ showWelcomeScreen: !isLocal });
-    if (isLocal  && this.mounted) 
-    {
+    if (isLocal  && this.mounted) {
       getEvents().then((events) => {
         if (this.mounted) {
-          this.setState({ events: events.slice(0, this.state.numberOfEvents), locations: extractLocations(events) });
+          let slicedEvents = events.slice(0, this.state.numberOfEvents);
+          this.setState({
+            events: slicedEvents,
+            locations: extractLocations(slicedEvents)
+          });
         }
       });
     }
